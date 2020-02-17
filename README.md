@@ -23,15 +23,14 @@ library and supported by your project. Once it is set up, one may execute the pr
 
 * A choice of sorts (as shown in the image above) already made, generified so one may
 use a data type other than the Integer class provided.
-    * The Radix, Bucket, and Merge sorts are specifically Integer sorts. However, one may
-    make a subclass of the merge sort to implement it with different data types.
+    * The Radix and Bucket sorts are specifically Integer sorts.
 
 * Segregated data generation to allow customized generation of data for different data types.
     * One may simply extend the base interface with a new interface of their specified type and
     make data generators using the newly made base class (as shown with 
     `project1.generator.integer.IntegerDataGenerator`).
     
-![Class hierarchy view](https://i.imgur.com/Gib0wk9.png)
+![Class hierarchy view](https://i.imgur.com/lwVJlRV.png)
     
 ## What could be improved?
 The `project1.gui.GUIController` should be segregated to have separate handlers for each data type. This way, one
