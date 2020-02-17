@@ -31,6 +31,8 @@ use a data type other than the Integer class provided.
     make data generators using the newly made base class (as shown with 
     `project1.generator.integer.IntegerDataGenerator`).
     
+![Class hierarchy view](https://i.imgur.com/Gib0wk9.png)
+    
 ## What could be improved?
 The `project1.gui.GUIController` should be segregated to have separate handlers for each data type. This way, one
 can even more easily make their own custom data types supported. While right now it involves
