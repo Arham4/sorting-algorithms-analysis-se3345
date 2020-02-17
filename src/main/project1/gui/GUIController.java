@@ -17,7 +17,7 @@ import project1.generator.integer.IntegerRandomOrderDataGenerator;
 import project1.generator.integer.IntegerReverseOrderDataGenerator;
 import project1.sorts.*;
 import project1.sorts.heap.HeapSort;
-import project1.sorts.merge.IntegerMergeSort;
+import project1.sorts.MergeSort;
 
 import java.net.URL;
 import java.util.Arrays;
@@ -72,7 +72,7 @@ public final class GUIController<E> implements Initializable {
         insertionSortButton.setUserData(new InsertionSort<Integer>());
         selectionSortButton.setUserData(new SelectionSort<Integer>());
         quickSortButton.setUserData(new QuickSort<Integer>());
-        mergeSortButton.setUserData(new IntegerMergeSort());
+        mergeSortButton.setUserData(new MergeSort<Integer>());
         heapSortButton.setUserData(new HeapSort<Integer>());
         radixSortButton.setUserData(new RadixSort());
         bucketSortButton.setUserData(new BucketSort());

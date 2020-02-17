@@ -1,19 +1,17 @@
-package project1.sorts.merge;
+package project1.sorts;
 
 import project1.ExperimentalResultsData;
-import project1.sorts.IntegerSort;
-import project1.sorts.SortType;
 
-public final class IntegerMergeSort implements IntegerSort {
+public final class MergeSort<E extends Comparable<E>> implements Sort<E> {
     @Override
-    public SortType sort(ExperimentalResultsData experimentalResultsData, Integer[] list) {
+    public SortType sort(ExperimentalResultsData experimentalResultsData, E[] list) {
         if (list.length > 1) {
-            Integer[] firstHalf = new Integer[list.length / 2];
+            E[] firstHalf = (E[]) new Comparable[list.length / 2];
             System.arraycopy(list, 0, firstHalf, 0, list.length / 2);
             sort(experimentalResultsData, firstHalf);
 
             int secondHalfLength = list.length - list.length / 2;
-            Integer[] secondHalf = new Integer[secondHalfLength];
+            E[] secondHalf = (E[]) new Comparable[secondHalfLength];
             System.arraycopy(list, list.length / 2, secondHalf, 0, secondHalfLength);
             sort(experimentalResultsData, secondHalf);
 
@@ -22,7 +20,7 @@ public final class IntegerMergeSort implements IntegerSort {
         return SortType.MERGE_SORT;
     }
 
-    private void merge(ExperimentalResultsData experimentalResultsData, Integer[] list1, Integer[] list2, Integer[] temp) {
+    private void merge(ExperimentalResultsData experimentalResultsData, E[] list1, E[] list2, E[] temp) {
         int current1 = 0;
         int current2 = 0;
         int current3 = 0;
