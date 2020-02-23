@@ -10,7 +10,7 @@ public final class IntegerAlmostOrderDataGenerator implements IntegerDataGenerat
     @Override
     public void makeData(int size) {
         list = new Integer[size];
-        int endIndex = list.length - ThreadLocalRandom.current().nextInt(20, 50);
+        int endIndex = (int) (list.length * (2.0 / 3));
         for (int i = 0; i < endIndex; i++) {
             list[i] = i + 1;
         }
