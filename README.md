@@ -29,14 +29,10 @@ use a data type other than the Integer class provided.
     * One may simply extend the base interface with a new interface of their specified type and
     make data generators using the newly made base class (as shown with 
     `project1.generator.integer.IntegerDataGenerator`).
+
+* An example of sorting students (a custom data type) by GPA, complete with the generation of that data.
     
 ![Class hierarchy view](https://i.imgur.com/lwVJlRV.png)
-    
-## What could be improved?
-The `project1.gui.GUIController` should be segregated to have separate handlers for each data type. This way, one
-can even more easily make their own custom data types supported. While right now it involves
-simply replacing all usages of `Integer` with `YourClassHere` and disabling the Radix and Bucket sorts,
-this isn't easy to tell without proper abstraction.
 
 ## Final analysis
 For integers, the fastest algorithm for a data set that was already in order was the Insertion 
