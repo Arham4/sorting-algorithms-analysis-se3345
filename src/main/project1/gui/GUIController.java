@@ -23,7 +23,7 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
-public final class GUIController<E> implements Initializable {
+public final class GUIController implements Initializable {
     @FXML private RadioButton inOrderButton;
     @FXML private RadioButton reverseOrderButton;
     @FXML private RadioButton almostOrderButton;
