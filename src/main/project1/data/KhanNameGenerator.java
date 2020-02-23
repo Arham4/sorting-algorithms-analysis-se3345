@@ -2,7 +2,7 @@ package project1.data;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public final class StudentRandomNameGenerator {
+public final class KhanNameGenerator {
     private static final String[] POSSIBLE_NAMES = {
             "Kamran Khan", "Ziaullah Khan",
             "Genghis Khan", "Nusrat Fateh Ali Khan",
