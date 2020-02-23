@@ -7,17 +7,17 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="project1.gui.GUIController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="project1.gui.IntegerGUIController">
   <children>
-    <VBox alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="422.0" prefWidth="216.0" style="-fx-border-color: black;">
+    <VBox fx:id="sortButtonsVBox" alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="422.0" prefWidth="216.0" style="-fx-border-color: black;">
       <children>
-        <Button fx:id="insertionSortButton" mnemonicParsing="false" onAction="#selectSort" prefHeight="70.3333333" prefWidth="194.0" text="Insertion Sort" />
-        <Button fx:id="selectionSortButton" mnemonicParsing="false" onAction="#selectSort" prefHeight="70.3333333" prefWidth="194.0" text="Selection Sort" />
-        <Button fx:id="quickSortButton" mnemonicParsing="false" onAction="#selectSort" prefHeight="70.3333333" prefWidth="194.0" text="Quick Sort" />
-        <Button fx:id="mergeSortButton" mnemonicParsing="false" onAction="#selectSort" prefHeight="70.3333333" prefWidth="194.0" text="Merge Sort" />
-        <Button fx:id="heapSortButton" mnemonicParsing="false" onAction="#selectSort" prefHeight="70.3333333" prefWidth="194.0" text="Heap Sort" />
-        <Button fx:id="radixSortButton" mnemonicParsing="false" onAction="#selectSort" prefHeight="70.3333333" prefWidth="194.0" text="Radix Sort" />
-        <Button fx:id="bucketSortButton" mnemonicParsing="false" onAction="#selectSort" prefHeight="70.3333333" prefWidth="194.0" text="Bucket Sort" />
+        <Button fx:id="insertionSortButton" mnemonicParsing="false" onAction="#selectSort" prefHeight="60.2857143" prefWidth="194.0" text="Insertion Sort" />
+        <Button fx:id="selectionSortButton" mnemonicParsing="false" onAction="#selectSort" prefHeight="60.2857143" prefWidth="194.0" text="Selection Sort" />
+        <Button fx:id="quickSortButton" mnemonicParsing="false" onAction="#selectSort" prefHeight="60.2857143" prefWidth="194.0" text="Quick Sort" />
+        <Button fx:id="mergeSortButton" mnemonicParsing="false" onAction="#selectSort" prefHeight="60.2857143" prefWidth="194.0" text="Merge Sort" />
+        <Button fx:id="heapSortButton" mnemonicParsing="false" onAction="#selectSort" prefHeight="60.2857143" prefWidth="194.0" text="Heap Sort" />
+        <Button fx:id="radixSortButton" mnemonicParsing="false" onAction="#selectSort" prefHeight="60.2857143" prefWidth="194.0" text="Radix Sort" />
+        <Button fx:id="bucketSortButton" mnemonicParsing="false" onAction="#selectSort" prefHeight="60.2857143" prefWidth="194.0" text="Bucket Sort" />
       </children>
       <padding>
         <Insets bottom="10.0" top="10.0" />

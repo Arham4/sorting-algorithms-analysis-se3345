@@ -9,6 +9,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.VBox;
 import project1.ExperimentalResultsData;
 import project1.generator.DataGenerator;
 import project1.generator.integer.IntegerAlmostOrderDataGenerator;
@@ -17,13 +18,13 @@ import project1.generator.integer.IntegerRandomOrderDataGenerator;
 import project1.generator.integer.IntegerReverseOrderDataGenerator;
 import project1.sorts.*;
 import project1.sorts.heap.HeapSort;
-import project1.sorts.MergeSort;
 
 import java.net.URL;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
-public final class GUIController implements Initializable {
+public final class IntegerGUIController implements Initializable {
+    @FXML public VBox sortButtonsVBox;
     @FXML private RadioButton inOrderButton;
     @FXML private RadioButton reverseOrderButton;
     @FXML private RadioButton almostOrderButton;
@@ -55,20 +56,35 @@ public final class GUIController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        winningAlgorithmData.setTotalTime(Integer.MAX_VALUE);
+        initializeListProperties();
+        createInitialList();
+        initializeSortButtons();
+    }
 
-        dataGenerator = new IntegerInOrderDataGenerator();
-        countTextField.setText(((int) (countSlider.getValue()) + ""));
-        countSlider.valueProperty().addListener((observableValue, number, t1) -> {
-            countTextField.setText(number.intValue() + "");
-        });
-        createList(null);
+    private void initializeSortButtons() {
+        setSortButtonsHeights();
+        setSortButtonsData();
+    }
 
-        inOrderButton.setUserData(new IntegerInOrderDataGenerator());
+    private void initializeListProperties() {
+        final DataGenerator<Integer> initialDataGenerator = new IntegerInOrderDataGenerator();
+
+        dataGenerator = initialDataGenerator;
+        inOrderButton.setUserData(initialDataGenerator);
         reverseOrderButton.setUserData(new IntegerReverseOrderDataGenerator());
         almostOrderButton.setUserData(new IntegerAlmostOrderDataGenerator());
         randomButton.setUserData(new IntegerRandomOrderDataGenerator());
+    }
 
+    private void setSortButtonsHeights() {
+        sortButtonsVBox.setPrefHeight(GUIConstants.SORT_BUTTONS_VBOX_HEIGHT);
+        final Button[] sortButtons = {insertionSortButton, selectionSortButton, quickSortButton, mergeSortButton, heapSortButton, radixSortButton, bucketSortButton};
+        for (Button sortButton : sortButtons) {
+            sortButton.setPrefHeight(GUIConstants.SORT_BUTTONS_VBOX_HEIGHT / sortButtons.length);
+        }
+    }
+
+    private void setSortButtonsData() {
         insertionSortButton.setUserData(new InsertionSort<Integer>());
         selectionSortButton.setUserData(new SelectionSort<Integer>());
         quickSortButton.setUserData(new QuickSort<Integer>());
@@ -76,6 +92,14 @@ public final class GUIController implements Initializable {
         heapSortButton.setUserData(new HeapSort<Integer>());
         radixSortButton.setUserData(new RadixSort());
         bucketSortButton.setUserData(new BucketSort());
+    }
+
+    private void createInitialList() {
+        countTextField.setText(((int) (countSlider.getValue()) + ""));
+        countSlider.valueProperty().addListener((observableValue, number, t1) -> {
+            countTextField.setText(number.intValue() + "");
+        });
+        createList(null);
     }
 
     private void updateExperimentalResultsGUI() {
