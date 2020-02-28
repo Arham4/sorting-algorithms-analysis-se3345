@@ -48,6 +48,8 @@ public final class StudentGUIController implements Initializable {
     @FXML private Button quickSortButton;
     @FXML private Button mergeSortButton;
     @FXML private Button heapSortButton;
+    @FXML private Button radixSortButton;
+    @FXML private Button bucketSortButton;
 
     private DataGenerator<Student> dataGenerator;
     private final ExperimentalResultsData experimentalResultsData = new ExperimentalResultsData();
@@ -81,6 +83,8 @@ public final class StudentGUIController implements Initializable {
         for (Button sortButton : sortButtons) {
             sortButton.setPrefHeight(GUIConstants.SORT_BUTTONS_VBOX_HEIGHT / sortButtons.length);
         }
+        radixSortButton.setVisible(false);
+        bucketSortButton.setVisible(false);
     }
 
     private void setSortButtonsData() {
