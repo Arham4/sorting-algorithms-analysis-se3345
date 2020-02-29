@@ -77,10 +77,10 @@ public abstract class GUIController<E extends Comparable<E>> implements Initiali
 
     private void initializeListProperties() {
         final Injector injector = Guice.createInjector(new IntegerDataGeneratorModule(), new StudentDataGeneratorModule());
-        final DataGenerator<E> inOrderDataGenerator = injector.getInstance(Key.get(TypeLiteralUtilities.getInOrderDataGenerator(type)));
-        final DataGenerator<E> reverseOrderDataGenerator = injector.getInstance(Key.get(TypeLiteralUtilities.getReverseOrderDataGenerator(type)));
-        final DataGenerator<E> almostOrderDataGenerator = injector.getInstance(Key.get(TypeLiteralUtilities.getAlmostOrderDataGenerator(type)));
-        final DataGenerator<E> randomOrderDataGenerator = injector.getInstance(Key.get(TypeLiteralUtilities.getRandomOrderDataGenerator(type)));
+        final DataGenerator<E> inOrderDataGenerator = injector.getInstance(Key.get(TypeLiteralUtilities.getInOrderDataGeneratorTypeLiteral(type)));
+        final DataGenerator<E> reverseOrderDataGenerator = injector.getInstance(Key.get(TypeLiteralUtilities.getReverseOrderDataGeneratorTypeLiteral(type)));
+        final DataGenerator<E> almostOrderDataGenerator = injector.getInstance(Key.get(TypeLiteralUtilities.getAlmostOrderDataGeneratorTypeLiteral(type)));
+        final DataGenerator<E> randomOrderDataGenerator = injector.getInstance(Key.get(TypeLiteralUtilities.getRandomOrderDataGeneratorTypeLiteral(type)));
 
         dataGenerator = inOrderDataGenerator;
         inOrderButton.setUserData(inOrderDataGenerator);
