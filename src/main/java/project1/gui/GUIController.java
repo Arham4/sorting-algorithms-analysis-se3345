@@ -3,8 +3,6 @@ package project1.gui;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Key;
-import com.google.inject.TypeLiteral;
-import com.google.inject.util.Types;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,7 +15,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import project1.ExperimentalResultsData;
 import project1.TypeLiteralUtilities;
-import project1.generator.*;
+import project1.generator.DataGenerator;
 import project1.generator.integer.IntegerDataGeneratorModule;
 import project1.generator.student.StudentDataGeneratorModule;
 import project1.sorts.*;
@@ -30,65 +28,39 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public abstract class GUIController<E extends Comparable<E>> implements Initializable {
-    @FXML
-    public VBox sortButtonsVBox;
-    @FXML
-    protected RadioButton inOrderButton;
-    @FXML
-    protected RadioButton reverseOrderButton;
-    @FXML
-    protected RadioButton almostOrderButton;
-    @FXML
-    protected RadioButton randomButton;
+    @FXML private VBox sortButtonsVBox;
+    @FXML private RadioButton inOrderButton;
+    @FXML private RadioButton reverseOrderButton;
+    @FXML private RadioButton almostOrderButton;
+    @FXML private RadioButton randomButton;
 
-    @FXML
-    private TextField nTextField;
-    @FXML
-    private TextField dataTypeTextField;
-    @FXML
-    private TextField lastSortTextField;
-    @FXML
-    private TextField comparisonsTextField;
-    @FXML
-    private TextField movementTextField;
-    @FXML
-    private TextField totalTimeTextField;
+    @FXML private TextField nTextField;
+    @FXML private TextField dataTypeTextField;
+    @FXML private TextField lastSortTextField;
+    @FXML private TextField comparisonsTextField;
+    @FXML private TextField movementTextField;
+    @FXML private TextField totalTimeTextField;
 
-    @FXML
-    private TextField countTextField;
-    @FXML
-    private Slider countSlider;
+    @FXML private TextField countTextField;
+    @FXML private Slider countSlider;
 
-    @FXML
-    private TextField winningAlgorithmTextField;
+    @FXML private TextField winningAlgorithmTextField;
 
-    @FXML
-    private Button insertionSortButton;
-    @FXML
-    private Button selectionSortButton;
-    @FXML
-    private Button quickSortButton;
-    @FXML
-    private Button mergeSortButton;
-    @FXML
-    private Button heapSortButton;
-    @FXML
-    private Button radixSortButton;
-    @FXML
-    private Button bucketSortButton;
+    @FXML private Button insertionSortButton;
+    @FXML private Button selectionSortButton;
+    @FXML private Button quickSortButton;
+    @FXML private Button mergeSortButton;
+    @FXML private Button heapSortButton;
+    @FXML private Button radixSortButton;
+    @FXML private Button bucketSortButton;
 
     private final Class<E> type;
     private final ExperimentalResultsData experimentalResultsData = new ExperimentalResultsData();
-    protected DataGenerator<E> dataGenerator;
+    private DataGenerator<E> dataGenerator;
     private ExperimentalResultsData winningAlgorithmData = new ExperimentalResultsData();
 
     public GUIController(Class<E> type) {
         this.type = type;
-    }
-
-    @SuppressWarnings("unchecked")
-    private TypeLiteral<DataGenerator<E>> listOf() {
-        return (TypeLiteral<DataGenerator<E>>) TypeLiteral.get(Types.listOf(type));
     }
 
     @Override

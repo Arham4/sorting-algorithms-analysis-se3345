@@ -7,6 +7,7 @@ import project1.generator.InOrderDataGenerator;
 import project1.generator.RandomOrderDataGenerator;
 import project1.generator.ReverseOrderDataGenerator;
 
+@SuppressWarnings("unchecked")
 public final class TypeLiteralUtilities {
     public static <E extends Comparable<E>> TypeLiteral<InOrderDataGenerator<E>> getInOrderDataGenerator(Class<E> type) {
         return (TypeLiteral<InOrderDataGenerator<E>>) TypeLiteral.get(Types.newParameterizedType(InOrderDataGenerator.class, type));
