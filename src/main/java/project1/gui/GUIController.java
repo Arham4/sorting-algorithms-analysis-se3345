@@ -16,8 +16,7 @@ import javafx.scene.layout.VBox;
 import project1.ExperimentalResultsData;
 import project1.TypeLiteralUtilities;
 import project1.generator.DataGenerator;
-import project1.generator.integer.IntegerDataGeneratorModule;
-import project1.generator.student.StudentDataGeneratorModule;
+import project1.generator.DataGeneratorModule;
 import project1.sorts.*;
 import project1.sorts.heap.HeapSort;
 
@@ -76,7 +75,7 @@ public abstract class GUIController<E extends Comparable<E>> implements Initiali
     }
 
     private void initializeListProperties() {
-        final Injector injector = Guice.createInjector(new IntegerDataGeneratorModule(), new StudentDataGeneratorModule());
+        final Injector injector = Guice.createInjector(new DataGeneratorModule());
         final DataGenerator<E> inOrderDataGenerator = injector.getInstance(Key.get(TypeLiteralUtilities.getInOrderDataGeneratorTypeLiteral(type)));
         final DataGenerator<E> reverseOrderDataGenerator = injector.getInstance(Key.get(TypeLiteralUtilities.getReverseOrderDataGeneratorTypeLiteral(type)));
         final DataGenerator<E> almostOrderDataGenerator = injector.getInstance(Key.get(TypeLiteralUtilities.getAlmostOrderDataGeneratorTypeLiteral(type)));
