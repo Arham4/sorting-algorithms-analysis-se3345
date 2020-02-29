@@ -32,7 +32,7 @@ use a data type other than the Integer class provided.
 
 * An example of sorting students (a custom data type) by GPA, complete with the generation of that data.
     
-![Class hierarchy view](https://i.imgur.com/udvxxbz.png)
+![Class hierarchy view](https://i.imgur.com/DhrfX91.png)
 
 ## Final analysis
 For integers, the fastest algorithm for a data set that was already in order was the Insertion 
