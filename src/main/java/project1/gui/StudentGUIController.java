@@ -1,12 +1,11 @@
 package project1.gui;
 
+import com.google.inject.Inject;
 import project1.data.Student;
 import project1.generator.AlmostOrderDataGenerator;
 import project1.generator.InOrderDataGenerator;
 import project1.generator.RandomOrderDataGenerator;
 import project1.generator.ReverseOrderDataGenerator;
-
-import javax.inject.Inject;
 
 public final class StudentGUIController extends GUIController<Student> {
 
