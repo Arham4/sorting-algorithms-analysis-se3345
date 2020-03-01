@@ -4,7 +4,7 @@ import project1.ExperimentalResultsData;
 
 import java.util.*;
 
-public final class BucketSort implements IntegerSort {
+public final class BucketSort implements Sort<Integer> {
     @Override
     public SortType sort(ExperimentalResultsData experimentalResultsData, Integer[] list) {
         Integer max = Arrays.stream(list).max(Integer::compareTo).orElse(null);

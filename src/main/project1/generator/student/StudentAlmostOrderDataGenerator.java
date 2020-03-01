@@ -2,11 +2,12 @@ package project1.generator.student;
 
 import project1.data.Student;
 import project1.data.KhanNameGenerator;
+import project1.generator.DataGenerator;
 import project1.generator.DataType;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public final class StudentAlmostOrderDataGenerator implements StudentDataGenerator {
+public final class StudentAlmostOrderDataGenerator implements DataGenerator<Student> {
     private Student[] list;
 
     @Override

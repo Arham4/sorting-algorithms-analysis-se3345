@@ -2,9 +2,10 @@ package project1.generator.student;
 
 import project1.data.Student;
 import project1.data.KhanNameGenerator;
+import project1.generator.DataGenerator;
 import project1.generator.DataType;
 
-public final class StudentReverseOrderDataGenerator implements StudentDataGenerator {
+public final class StudentReverseOrderDataGenerator implements DataGenerator<Student> {
 
     private Student[] list;
 

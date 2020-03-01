@@ -1,8 +1,9 @@
 package project1.generator.integer;
 
+import project1.generator.DataGenerator;
 import project1.generator.DataType;
 
-public final class IntegerInOrderDataGenerator implements IntegerDataGenerator {
+public final class IntegerInOrderDataGenerator implements DataGenerator<Integer> {
 
     private Integer[] list;
 

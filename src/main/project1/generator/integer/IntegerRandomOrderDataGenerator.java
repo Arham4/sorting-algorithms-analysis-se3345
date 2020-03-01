@@ -1,10 +1,11 @@
 package project1.generator.integer;
 
+import project1.generator.DataGenerator;
 import project1.generator.DataType;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public final class IntegerRandomOrderDataGenerator implements IntegerDataGenerator {
+public final class IntegerRandomOrderDataGenerator implements DataGenerator<Integer> {
 
     private Integer[] list;
 
