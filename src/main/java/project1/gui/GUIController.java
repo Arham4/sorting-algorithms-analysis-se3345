@@ -1,8 +1,5 @@
 package project1.gui;
 
-import com.google.inject.Guice;
-import com.google.inject.Injector;
-import com.google.inject.Key;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,12 +11,11 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import project1.ExperimentalResultsData;
-import project1.TypeLiteralUtilities;
-import project1.generator.DataGenerator;
-import project1.generator.DataGeneratorModule;
+import project1.generator.*;
 import project1.sorts.*;
 import project1.sorts.heap.HeapSort;
 
+import javax.inject.Inject;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -53,13 +49,20 @@ public abstract class GUIController<E extends Comparable<E>> implements Initiali
     @FXML private Button radixSortButton;
     @FXML private Button bucketSortButton;
 
-    private final Class<E> type;
+    private final InOrderDataGenerator<E> inOrderDataGenerator;
+    private final ReverseOrderDataGenerator<E> reverseOrderDataGenerator;
+    private final AlmostOrderDataGenerator<E> almostOrderDataGenerator;
+    private final RandomOrderDataGenerator<E> randomOrderDataGenerator;
     private final ExperimentalResultsData experimentalResultsData = new ExperimentalResultsData();
     private DataGenerator<E> dataGenerator;
     private ExperimentalResultsData winningAlgorithmData = new ExperimentalResultsData();
 
-    public GUIController(Class<E> type) {
-        this.type = type;
+    @Inject
+    public GUIController(InOrderDataGenerator<E> inOrderDataGenerator, ReverseOrderDataGenerator<E> reverseOrderDataGenerator, AlmostOrderDataGenerator<E> almostOrderDataGenerator, RandomOrderDataGenerator<E> randomOrderDataGenerator) {
+        this.inOrderDataGenerator = inOrderDataGenerator;
+        this.reverseOrderDataGenerator = reverseOrderDataGenerator;
+        this.almostOrderDataGenerator = almostOrderDataGenerator;
+        this.randomOrderDataGenerator = randomOrderDataGenerator;
     }
 
     @Override
@@ -75,12 +78,6 @@ public abstract class GUIController<E extends Comparable<E>> implements Initiali
     }
 
     private void initializeListProperties() {
-        final Injector injector = Guice.createInjector(new DataGeneratorModule());
-        final DataGenerator<E> inOrderDataGenerator = injector.getInstance(Key.get(TypeLiteralUtilities.getInOrderDataGeneratorTypeLiteral(type)));
-        final DataGenerator<E> reverseOrderDataGenerator = injector.getInstance(Key.get(TypeLiteralUtilities.getReverseOrderDataGeneratorTypeLiteral(type)));
-        final DataGenerator<E> almostOrderDataGenerator = injector.getInstance(Key.get(TypeLiteralUtilities.getAlmostOrderDataGeneratorTypeLiteral(type)));
-        final DataGenerator<E> randomOrderDataGenerator = injector.getInstance(Key.get(TypeLiteralUtilities.getRandomOrderDataGeneratorTypeLiteral(type)));
-
         dataGenerator = inOrderDataGenerator;
         inOrderButton.setUserData(inOrderDataGenerator);
         reverseOrderButton.setUserData(reverseOrderDataGenerator);

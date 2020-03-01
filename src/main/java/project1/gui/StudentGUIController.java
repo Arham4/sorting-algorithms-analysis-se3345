@@ -1,10 +1,18 @@
 package project1.gui;
 
 import project1.data.Student;
+import project1.generator.AlmostOrderDataGenerator;
+import project1.generator.InOrderDataGenerator;
+import project1.generator.RandomOrderDataGenerator;
+import project1.generator.ReverseOrderDataGenerator;
+
+import javax.inject.Inject;
 
 public final class StudentGUIController extends GUIController<Student> {
-    public StudentGUIController() {
-        super(Student.class);
+
+    @Inject
+    public StudentGUIController(InOrderDataGenerator<Student> inOrderDataGenerator, ReverseOrderDataGenerator<Student> reverseOrderDataGenerator, AlmostOrderDataGenerator<Student> almostOrderDataGenerator, RandomOrderDataGenerator<Student> randomOrderDataGenerator) {
+        super(inOrderDataGenerator, reverseOrderDataGenerator, almostOrderDataGenerator, randomOrderDataGenerator);
     }
 
     @Override

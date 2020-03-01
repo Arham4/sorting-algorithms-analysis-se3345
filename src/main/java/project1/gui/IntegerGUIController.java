@@ -1,8 +1,17 @@
 package project1.gui;
 
+import project1.generator.AlmostOrderDataGenerator;
+import project1.generator.InOrderDataGenerator;
+import project1.generator.RandomOrderDataGenerator;
+import project1.generator.ReverseOrderDataGenerator;
+
+import javax.inject.Inject;
+
 public final class IntegerGUIController extends GUIController<Integer> {
-    public IntegerGUIController() {
-        super(Integer.class);
+
+    @Inject
+    public IntegerGUIController(InOrderDataGenerator<Integer> inOrderDataGenerator, ReverseOrderDataGenerator<Integer> reverseOrderDataGenerator, AlmostOrderDataGenerator<Integer> almostOrderDataGenerator, RandomOrderDataGenerator<Integer> randomOrderDataGenerator) {
+        super(inOrderDataGenerator, reverseOrderDataGenerator, almostOrderDataGenerator, randomOrderDataGenerator);
     }
 
     @Override
