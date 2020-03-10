@@ -8,7 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import project1.generator.DataGeneratorModule;
-import project1.gui.StudentGUIController;
+import project1.gui.IntegerGUIController;
 
 import java.net.URISyntaxException;
 
@@ -17,7 +17,7 @@ public final class Main extends Application {
     public void start(Stage stage) throws Exception {
         final Injector injector = Guice.createInjector(new DataGeneratorModule());
         final FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("gui.fxml"));
-        loader.setController(injector.getInstance(StudentGUIController.class));
+        loader.setController(injector.getInstance(IntegerGUIController.class));
         final Parent root = loader.load();
         stage.setTitle("Project 1 - Winning Algorithm");
         stage.setScene(new Scene(root));
